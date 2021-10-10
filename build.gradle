@@ -1,0 +1,126 @@
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.gluonhq:gluonfx-gradle-plugin:1.0.6'
+        classpath 'gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0'
+    }
+}
+
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'java'
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.6'
+}
+
+group 'xyz.yuelai'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url = 'https://maven.aliyun.com/repository/public' }
+    mavenLocal()
+}
+
+ext {
+    junitVersion = '5.7.1'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+}
+
+[compileKotlin, compileTestKotlin].forEach {
+    it.kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+
+javafx {
+    version = '11.0.2'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+gluonfx {
+//    target = "$target"
+    target = "host"
+//    attachConfig {
+//        version = "4.0.9"
+//        configuration = "implementation";
+//        services "lifecycle"
+//    }
+
+//    bundlesList = ['com/sun/glass/ui/win/themes']
+//    resourcesList = ['*.fxml', '*.css']
+//    reflectionList = ['xyz.yuelai.timer.MainApplication']
+//    jniList = []
+//
+//    compilerArgs = []
+//    runtimeArgs = []
+
+//    javaStaticSdkVersion = ""
+//    javafxStaticSdkVersion = "18-ea+2"
+//    graalvmHome = ""
+
+//    verbose = false
+//    enableSwRendering = false
+    mainClassName = 'xyz.yuelai.timer.MainApplicationKt'
+    graalvmHome = "D:\\graalvm-ce-java11-21.2.0"
+//    remoteHostName = ""
+//    remoteDir = ""
+
+//    release {
+//        // Android
+//        appLabel = ""
+//        versionCode = "1"
+//        versionName = "1.0"
+//        providedKeyStorePath = ""
+//        providedKeyStorePassword = ""
+//        providedKeyAlias = ""
+//        providedKeyAliasPassword = ""
+//        // iOS
+//        bundleName = ""
+//        bundleVersion = ""
+//        bundleShortVersion = ""
+//        providedSigningIdentity = ""
+//        providedProvisioningProfile = ""
+//        skipSigning = false
+//    }
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    implementation('org.kordamp.ikonli:ikonli-javafx:12.2.0')
+    implementation 'xyz.yuelai.ikonli:win11-icons:12.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar {
+    archiveBaseName.set('Timer')
+    archiveClassifier.set('')
+    archiveVersion.set('1.0')
+}
+
+task graalvmBuild {
+    exec {
+        commandLine "build.bat", buildDir.absolutePath + "\\libs\\Timer-1.0.jar"
+    }
+}

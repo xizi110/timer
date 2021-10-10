@@ -1,0 +1,21 @@
+{
+  "resources":{
+  "includes":[
+    {"pattern":"\\QMETA-INF/resources/win11/segoeFluentIcons/SegoeFluentIcons.ttf\\E"}, 
+    {"pattern":"\\QMETA-INF/services/org.kordamp.ikonli.IkonHandler\\E"}, 
+    {"pattern":"\\Qcom/sun/glass/utils/NativeLibLoader.class\\E"}, 
+    {"pattern":"\\Qcom/sun/prism/d3d/hlsl/FillPgram_Color.obj\\E"}, 
+    {"pattern":"\\Qcom/sun/prism/d3d/hlsl/Solid_TextureFirstPassLCD.obj\\E"}, 
+    {"pattern":"\\Qcom/sun/prism/d3d/hlsl/Solid_TextureRGB.obj\\E"}, 
+    {"pattern":"\\Qcom/sun/prism/d3d/hlsl/Solid_TextureSecondPassLCD.obj\\E"}, 
+    {"pattern":"\\Qcom/sun/prism/d3d/hlsl/Texture_Color.obj\\E"}, 
+    {"pattern":"\\Qcom/sun/scenario/effect/impl/hw/d3d/hlsl/LinearConvolveShadow_64.obj\\E"}, 
+    {"pattern":"\\Qglass.dll\\E"}, 
+    {"pattern":"\\Qjavafx_font.dll\\E"}, 
+    {"pattern":"\\Qprism_d3d.dll\\E"}, 
+    {"pattern":"\\Qxyz/yuelai/timer/mainView.fxml\\E"},
+    {"pattern":"\\Qxyz/yuelai/timer/timer.css\\E"},
+    {"pattern":"\\Qcom/sun/javafx/scene/control/skin/modena/modena.css\\E"}
+  ]},
+  "bundles":[{"name":"com.sun.javafx.tk.quantum.QuantumMessagesBundle"}]
+}

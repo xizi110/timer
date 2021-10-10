@@ -1,0 +1,43 @@
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-background-radius: 4px;
+}
+
+.btn {
+    -fx-background-color: TRANSPARENT;
+    -fx-border-width: 0;
+}
+
+Label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.context-menu {
+    -fx-background-color: #3c3f41;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-pref-width: 100px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.menu-item {
+    -fx-background-color: TRANSPARENT;
+}
+
+.menu-item:hover {
+    -fx-background-color: #4b6eaf;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.menu-item:hover > .label{
+    -fx-text-fill: #fff;
+}
+
+.menu-item > .label {
+    -fx-text-fill: #ccc;
+    -fx-font-size: 16px;
+    -fx-padding: 0 0 .1em 0;
+}
